@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+// import { DataService } from ' ../../data.service';
+// import { RestApiService } from '../../rest-api.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-form',
@@ -8,7 +11,17 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class FormComponent implements OnInit {
-    constructor() {}
+    public Courses = [{}];
+    public Semesters = [{name: '2017 Spring'},
+        {name: '2017 Summer'}
+    ];
+    public Title = '';
+    public Description = '';
+    constructor( ) {
+  }
 
-    ngOnInit() {}
+    ngOnInit() {
+        // this.Courses = this.rest.get(
+        //     'http://localhost:3030/aping/courses') ;
+    }
 }

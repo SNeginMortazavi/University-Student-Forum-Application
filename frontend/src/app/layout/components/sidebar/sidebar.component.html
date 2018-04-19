@@ -5,11 +5,18 @@
         </a>
 
 
-        <a  class="list-group-item">
+        <a  class="list-group-item"
+        [routerLink]="['/components']"
+        [routerLinkActive]="['router-link-active']"
+        >
             <i class="fa fa-fw fa-book"></i>&nbsp;{{ 'Courses' | translate }}
         </a>
 
-        <a  class="list-group-item">
+        <a  class="list-group-item"
+         [routerLink]="['/forms']"
+                 [routerLinkActive]="['router-link-active']"
+
+        >
             <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Posts' | translate }}
         </a>
 
@@ -26,7 +33,7 @@
 
             <div class="nested-menu">
                 <a class="list-group-item" (click)="addExpandClass('profile')">
-                    <span><i class="fa fa-user"></i>{{ this.username }}</span>
+                    <span><i class="fa fa-user"></i>Philip Gust</span>
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'profile'">
                     <ul class="submenu">
