@@ -1,0 +1,74 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Post a Review'" [icon]="'fa-edit'"></app-page-header>
+
+<div class="control-fluid">
+            <form role="form">
+                <fieldset class="form-group">
+                 <div class="form-group">
+                                                    <label>Selects a Semester</label>
+                                                    <select class="form-control"
+                                                    >
+
+                                                        <option *ngFor="let semester of Semesters">
+                                                        {{semester.name}}</option>
+
+                                                    </select>
+                                                </div>
+                 <div class="form-group">
+                                    <label>Selects a Course</label>
+                                    <select class="form-control"
+                                    >
+
+                                        <option *ngFor="let course of Courses">{{course.name}}</option>
+
+                                    </select>
+                                </div>
+
+                </fieldset>
+                  <fieldset class="form-group">
+                  <label>Title</label>
+                                      <input class="form-control"
+                                      type="text"
+                                      name="title"
+                                      [(ngModel)]="Title">
+                                    <label>Description</label>
+                                    <textarea class="form-control"
+                                    type="text"
+                                    name="description"
+                                     [(ngModel)]="Description"
+                                    rows="3"></textarea>
+                                </fieldset>
+
+
+                <div class="form-group">
+                    <label>Rate the Course</label>
+                     <label class="radio-inline">
+                                            <input type="radio" name="rating">0
+                                        </label>
+                        <label class="radio-inline">
+                                                               <input type="radio" name="rating">1
+                                                           </label>
+                        <label class="radio-inline">
+                                                               <input type="radio" name="rating">2
+                                                           </label>
+                      <label class="radio-inline">
+                                                             <input type="radio" name="rating">3
+                                                         </label>
+                        <label class="radio-inline">
+                                                               <input type="radio" name="rating">4
+                                                           </label>
+                                          <label class="radio-inline">
+                                                                                 <input type="radio" name="rating">5
+                                                                             </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-control">Submit</button>
+
+            </form>
+
+        </div>
+        </div>
+
+
+
+
