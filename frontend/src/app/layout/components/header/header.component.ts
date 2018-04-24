@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     username: string;
     userToken: string;
     serachContent: string;
+    course: Array<string>;
 
   constructor(
     private translate: TranslateService, 
@@ -107,7 +108,9 @@ async onSearch(){
     if (data['success']) {
     //   localStorage.setItem('token', data['token']);
     //   this.router.navigate(['/']);
-        console.log(data['content']['hits']);
+        this.course = data['content']['hits'];
+        console.log("data is: " + data['content']['hits']);
+        console.log("course is: " + this.course)
     } else {
         console.log("connot get data");
         this.data.error(data['message']);
