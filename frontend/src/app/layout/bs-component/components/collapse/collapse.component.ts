@@ -31,13 +31,16 @@ export class CollapseComponent  implements OnInit {
         try {
             const data = await this.rest.get(
                 'http://localhost:3030/api/courses'
-            ).then(data => console.log(data));
+            );
+            console.log(data);
 data['success']? (this.courses = data['courses']):this.data.error(data['message']);
+
 
 
         }catch(error){
             this.data.error(error['message']);
-            console.log('error');
+            console.log(error);
+            console.log(this.data.error);
 
         }
         console.log(this.courses);
