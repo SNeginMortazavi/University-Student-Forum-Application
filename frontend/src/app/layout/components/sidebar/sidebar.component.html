@@ -5,7 +5,7 @@
         </a>
 
 
-        <a  class="list-group-item"
+        <a  class="list-group-item" (click)="onGetAllCourse"
         [routerLink]="['/components']"
         [routerLinkActive]="['router-link-active']"
         >
@@ -14,7 +14,8 @@
 
         <a  class="list-group-item"
         [routerLink]="['/forms']"
-        [routerLinkActive]="['router-link-active']">
+        [routerLinkActive]="['router-link-active']"
+        >
             <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Posts' | translate }}
         </a>
 

@@ -63,4 +63,8 @@ export class SidebarComponent {
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
     }
+
+    onGetAllCourse(){
+        console.log(localStorage.getItem("searchResult")[0]);
+    }
 }

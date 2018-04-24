@@ -109,8 +109,11 @@ async onSearch(){
     //   localStorage.setItem('token', data['token']);
     //   this.router.navigate(['/']);
         this.course = data['content']['hits'];
-        console.log("data is: " + data['content']['hits']);
-        console.log("course is: " + this.course)
+        console.log("data is: ");
+        console.log(data['content']['hits']);
+        console.log("course is: ");
+        console.log(this.course);
+        localStorage.setItem('searchResult', data['content']['hits']);
     } else {
         console.log("connot get data");
         this.data.error(data['message']);
