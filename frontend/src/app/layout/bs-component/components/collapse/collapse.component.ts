@@ -15,6 +15,7 @@ import { Observable } from "rxjs/Observable";
 })
 export class CollapseComponent implements OnInit {
     public courses: any[];
+    searchContent: string;
 
     constructor(
         private router: Router,
@@ -23,24 +24,58 @@ export class CollapseComponent implements OnInit {
         private http: HttpClient
     ) {}
 
-    async ngOnInit() {
+    ngOnInit(){
+        if(localStorage.getItem("searchContent") == null){
+            this.onGetAll();
+        }else{
+            var searchContent = localStorage.getItem("searchContent");
+            this.searchContent = searchContent;
+            console.log("searchContent is: " + searchContent);
+            this.onSearch();
+        }
+        // var searchContent = localStorage.getItem("searchContent");
+        // console.log("searchContent is: " + searchContent);
+        // // this.onGetAll();
+        // if(searchContent == null){
+        //     this.onGetAll();
+        // }else{
+        //     this.onSearch();
+        // }
+    }
+
+    async onGetAll() {
+        console.log("get all!")
         try {
             const data = await this.rest.get(
-                'http://localhost:3030/api/courses'
+                "http://localhost:3030/api/courses"
             );
             console.log(data);
-data['success']? (this.courses = data['courses']):this.data.error(data['message']);
-
-
-
-        }catch(error){
-            this.data.error(error['message']);
+            data["success"]
+                ? (this.courses = data["courses"])
+                : this.data.error(data["message"]);
+        } catch (error) {
+            this.data.error(error["message"]);
             console.log(error);
             console.log(this.data.error);
-
         }
         console.log(this.courses);
-        // this.buildCourses(this.courses);
+        this.buildCourses(this.courses);
+    }
+
+    async onSearch() {
+        console.log("search!");
+        console.log(this.searchContent);
+        const data = await this.rest.get(
+            "http://localhost:3030/api/search/course?query=" + this.searchContent
+        );
+        if (data["success"]) {
+            console.log("data is: ");
+            console.log(data["content"]["hits"]);
+            this.courses = data["content"]["hits"];
+        } else {
+            console.log("connot get data");
+            this.data.error(data["message"]);
+        }
     }
 
     buildCourses(courses: any) {

@@ -65,6 +65,6 @@ export class SidebarComponent {
     }
 
     onGetAllCourse(){
-        console.log(localStorage.getItem("searchResult")[0]);
+        // localStorage.removeItem("searchContent");
     }
 }
