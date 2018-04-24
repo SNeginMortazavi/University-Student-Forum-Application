@@ -25,17 +25,6 @@ export class CollapseComponent implements OnInit {
 
     async ngOnInit() {
         try {
-<<<<<<< HEAD
-            const data = await this.rest
-                .get("http://localhost:3030/api/courses")
-                .then(data => console.log(data));
-            // data["success"]
-            //     ? (this.courses = data["courses"])
-            //     : this.data.error(data["message"]);
-        } catch (error) {
-            this.data.error(error["message"]);
-            console.log("error");
-=======
             const data = await this.rest.get(
                 'http://localhost:3030/api/courses'
             );
@@ -49,7 +38,6 @@ data['success']? (this.courses = data['courses']):this.data.error(data['message'
             console.log(error);
             console.log(this.data.error);
 
->>>>>>> 1d2562471f838711f47756729900dbf220e2f796
         }
         console.log(this.courses);
         // this.buildCourses(this.courses);
