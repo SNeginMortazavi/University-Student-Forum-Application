@@ -113,6 +113,7 @@ export class HeaderComponent implements OnInit {
     onSearch() {
         console.log("searchContent is: " + this.serachContent);
         if(this.serachContent == undefined){
+            localStorage.removeItem("searchContent");
             window.location.href = 'http://localhost:4200/components';
         }else{
             localStorage.setItem("searchContent", this.serachContent);

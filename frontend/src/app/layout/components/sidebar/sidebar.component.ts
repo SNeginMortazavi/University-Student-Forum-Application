@@ -64,7 +64,8 @@ export class SidebarComponent {
         localStorage.removeItem('isLoggedin');
     }
 
-    onGetAllCourse(){
-        // localStorage.removeItem("searchContent");
+    clearSearchContent(){
+        localStorage.removeItem("searchContent");
+        console.log("search content clear!");
     }
 }
