@@ -5,16 +5,16 @@
             <p> Please click to see the course details.</p>
             <div
 
-            *ngFor="let course of Courses">
+            *ngFor="let course of courses">
             <div class="card-body" >
                 <p>
-                    <button type="button" class="btn btn-outline-primary"
-                    (click)="course.isCollapsed = !course.isCollapsed"
-                        [attr.aria-expanded]="!course.isCollapsed" aria-controls="collapseExample">
+                    <button *ngIf="course.name"  type="button" class="btn btn-outline-primary"
+                    (click)="course.expand = !course.expand"
+                        [attr.aria-expanded]="course.expand" aria-controls="collapseExample">
                         {{course.name}}
                     </button>
                 </p>
-                <div id="collapseExample" [ngbCollapse]="course.isCollapsed">
+                <div id="collapseExample" [ngbCollapse]="!course.expand">
                     <div class="card">
                         <div class="card-body">
                            <p> You can collapse this card by clicking the Course Name Button.</p>

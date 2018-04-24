@@ -63,8 +63,8 @@ router.route('/course')
     });
 
 router.get('/courses', function(req, res, next) {
-    const perPage = 10;
-    const page = req.query.page;
+    // const perPage = 10;
+    // const page = req.query.page;
     async.parallel([
         function(callback) {
             Course.count({}, function(err, count) {
@@ -74,8 +74,8 @@ router.get('/courses', function(req, res, next) {
     },
     function(callback) {
         Course.find({})
-            .skip(perPage * page)
-            .limit(perPage)
+            // .skip(perPage * page)
+            // .limit(perPage)
             .populate('semester')
             .exec(function(err, courses){
                 if(err) return next(err);
@@ -91,7 +91,7 @@ router.get('/courses', function(req, res, next) {
         message: 'semester',
         courses: courses,
         totalCourses: totalCourses,
-        pages: Math.ceil(totalCourses / perPage)
+        // pages: Math.ceil(totalCourses / perPage)
     });
     });
 
@@ -105,8 +105,8 @@ router.get('/courses', function(req, res, next) {
 * book, 10, per API, so it will be 300 pages
 */
 router.get('/semesters/:id', function(req, res, next) {
-    const perPage = 10;
-    const page = req.query.page;
+    // const perPage = 10;
+    // const page = req.query.page;
     async.parallel([
         function(callback) {
             Course.count({semester: req.params.id}, function(err, count) {
@@ -116,8 +116,8 @@ router.get('/semesters/:id', function(req, res, next) {
         },
         function(callback) {
             Course.find({semester: req.params.id})
-                .skip(perPage * page)
-                .limit(perPage)
+                //  skip(perPage * page)
+                // limit(perPage)
                 .populate('semester')
                 .populate('reviews')
                 .exec(function(err, courses) {
@@ -134,7 +134,7 @@ router.get('/semesters/:id', function(req, res, next) {
             message: 'course',
             courses: courses,
             totalCourses: totalCourses,
-            pages: Math.ceil(totalCourses / perPage)
+            //pages: Math.ceil(totalCourses / perPage)
         });
     });
 

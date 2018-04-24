@@ -92,8 +92,8 @@ router.get('/sales/:id',function(req, res, next) {
 To find all sales for any course and any students posted
  */
 router.get('/sales', function(req, res, next) {
-    const perPage = 10;
-    const page = req.query.page;
+    // const perPage = 10;
+    // const page = req.query.page;
     async.parallel([
         function(callback) {
             Sale.count({}, function(err, count) {
@@ -103,8 +103,8 @@ router.get('/sales', function(req, res, next) {
         },
         function(callback) {
             Sale.find({})
-                .skip(perPage * page)
-                .limit(perPage)
+                // .skip(perPage * page)
+                // .limit(perPage)
                 .populate('owner')
                 .populate('course')
                 .exec(function(err, sales) {
@@ -121,7 +121,7 @@ router.get('/sales', function(req, res, next) {
             message: 'sales',
             saless: sales,
             totalCourses: totalSales,
-            pages: Math.ceil(totalSales / perPage)
+            // pages: Math.ceil(totalSales / perPage)
         });
     });
 
