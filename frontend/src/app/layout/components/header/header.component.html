@@ -15,80 +15,16 @@
         </div>
         <ul class="navbar-nav ml-auto" style="color: white">
             <li class="nav-item dropdown" ngbDropdown style="color: white">
-                <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle style="color: white">
-                    <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
-                </a>
-                <ul class="dropdown-menu-right messages" ngbDropdownMenu style="color: white">
-                    <li class="media" style="color: white">
-                        <img class="d-flex align-self-center mr-3"
-                            src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg" alt="Generic placeholder image"
-                        >
-                        <div class="media-body" style="color: white">
-                            <h5 class="mt-0 mb-1" style="color: white">{{ this.username }}</h5>
-                            <p class="small text-muted"><i class="fa fa-clock-o" style="color: white"></i> Yesterday at 4:32 PM</p>
-                            <p class="last" style="color: white"> Lorem ipsum dolor sit amet, consectetur...</p>
-                        </div>
-                    </li>
-                    <li class="media" style="color: white">
-                        <img class="d-flex align-self-center mr-3"
-                            src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg"
-                            alt="Generic placeholder image"
-                        >
-                        <div class="media-body" style="color: white">
-                            <h5 class="mt-0 mb-1" style="color: white">{{ this.username }}</h5>
-                            <p class="small text-muted" style="color: white"><i class="fa fa-clock-o" style="color: white"></i> Yesterday at 4:32 PM</p>
-                            <p class="last" style="color: white"> Lorem ipsum dolor sit amet, consectetur...</p>
-                        </div>
-                    </li>
-                    <li class="media" style="color: white">
-                        <img class="d-flex align-self-center mr-3"
-                            src="http://i.huffpost.com/gadgets/slideshows/461162/slide_461162_6224974_sq50.jpg"
-                            alt="Generic placeholder image"
-                        />
-                        <div class="media-body" style="color: white">
-                            <h5 class="mt-0 mb-1" style="color: white">{{ this.username }}</h5>
-                            <p class="small text-muted" style="color: white"><i class="fa fa-clock-o" style="color: white"></i> Yesterday at 4:32 PM</p>
-                            <p class="last" style="color: white"> Lorem ipsum dolor sit amet, consectetur...</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown" ngbDropdown>
-                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle style="color: white">
-                    <i class="fa fa-bell" style="color: white"></i> <b class="caret"></b><span class="sr-only">(current)</span>
-                </a>
-                <div class="dropdown-menu-right" ngbDropdownMenu style="color: white">
-                    <a href="javascript:void(0)" class="dropdown-item" style="color: black">
-                        {{ 'Pending Task' | translate }} <span class="badge badge-info" style="color: black">6</span>
-                    </a>
-                    <a href="javascript:void(0)" class="dropdown-item" style="color: black">
-                        {{ 'In queue' | translate }} <span class="badge badge-info" style="color: black"> 13</span>
-                    </a>
-                    <a href="javascript:void(0)" class="dropdown-item" style="color: black">
-                        {{ 'Mail' | translate }} <span class="badge badge-info" style="color: black"> 45</span>
-                    </a>
-                    <li class="dropdown-divider" style="color: black"></li>
-                    <a href="javascript:void(0)" class="dropdown-item" style="color: black">
-                        {{ 'View All' | translate }}
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item dropdown" style="color: white">
-            </li>
-            <li class="nav-item dropdown" ngbDropdown style="color: white">
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user" style="color: white"></i> {{username}} <b class="caret" style="color: white"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu style="color: black">
-                    <a class="dropdown-item" href="javascript:void(0)">
+                    <a class="dropdown-item" href="https://my.northeastern.edu/group/student">
                         <i class="fa fa-fw fa-user" style="color: black"></i> {{ 'Profile' | translate }}
                     </a>
-                    <!-- <a class="dropdown-item" href="javascript:void(0)" style="color: black">
+                    <a class="dropdown-item" href="https://mail.google.com/mail/u/2/#inbox" style="color: black">
                         <i class="fa fa-fw fa-envelope" style="color: black"></i> {{ 'Inbox' | translate }}
                     </a>
-                    <a class="dropdown-item" href="javascript:void(0)" style="color: black">
-                        <i class="fa fa-fw fa-gear" style="color: black"></i> {{ 'Settings' | translate }}
-                    </a> -->
                     <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()" style="color: black">
                         <i class="fa fa-fw fa-power-off" style="color: black"></i> {{ 'Log Out' | translate }}
                     </a>
