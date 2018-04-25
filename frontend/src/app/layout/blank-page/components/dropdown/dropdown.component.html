@@ -1,0 +1,50 @@
+<div class="card" style="height:1000px">
+    <div class="card-header">Select Semester to See All Courses</div>
+    <div class="card-body">
+
+                <div ngbDropdown class="d-inline-block dropdown">
+                    <button class="btn btn-outline-primary" ngbDropdownToggle>{{semester}}</button>
+                    <div ngbDropdownMenu>
+                    <div *ngFor="let Onesem of semesters"
+                    (click)="setSemesterName(Onesem.name)">
+                        <button class="dropdown-item">{{Onesem.name}}</button>
+
+                    </div>
+
+
+        </div>
+
+    </div>
+                            <button class="btn btn-primary"
+                            (click)="onClick()">Confirm the Semester choose</button>
+
+
+    <div class="card mb-3" *ngIf="courses">
+                    <div class="card-header">
+                        The Course on Selected Semester
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Course Instructor</th>
+                                <th>Course Description</th>
+                                  <th>Course Creit</th>
+
+                            </tr>
+                            </thead>
+                            <tbody *ngFor="let course of courses">
+                            <tr>
+                                <td>{{course.name}}</td>
+                                <td>{{course.instructor}}</td>
+                                <td>{{course.description}}</td>
+                                 <td>{{course.credit}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+</div>
+</div>

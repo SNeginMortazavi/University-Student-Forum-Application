@@ -9,4 +9,6 @@ export class BlankPageComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {}
+
+
 }
