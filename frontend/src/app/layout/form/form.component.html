@@ -9,7 +9,7 @@
                                                     <select class="form-control"
                                                     >
 
-                                                        <option *ngFor="let semester of Semesters">
+                                                        <option *ngFor="let semester of Semesters" (click)="setSemester(semester)">
                                                         {{semester.name}}</option>
 
                                                     </select>
