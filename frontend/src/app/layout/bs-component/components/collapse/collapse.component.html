@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="height=1000px">
     <div class="col-lg-12">
         <div class="card mb-3">
             <div class="card-header">Course List</div>
@@ -41,7 +41,9 @@
                                     </ngb-tab>
                                     <ngb-tab title="Reviews">
                                         <ng-template ngbTabContent>
-                                            <p>{{course.reviews}}</p>
+                                        <div *ngFor="let review of course.reviews">
+                                            <p>{{review}}</p>
+                                            </div>
                                         </ng-template>
                                     </ngb-tab>
                                 </ngb-tabset>
