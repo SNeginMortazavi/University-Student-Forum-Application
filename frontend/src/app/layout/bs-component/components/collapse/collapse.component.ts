@@ -53,6 +53,9 @@ export class CollapseComponent implements OnInit {
             data["success"]
                 ? (this.courses = data["courses"])
                 : this.data.error(data["message"]);
+            for(let course of this.courses){
+                console.log(course.name);
+            console.log(course.reviews);}
         } catch (error) {
             this.data.error(error["message"]);
             console.log(error);

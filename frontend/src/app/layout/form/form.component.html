@@ -2,14 +2,16 @@
     <app-page-header [heading]="'Post a Review'" [icon]="'fa-edit'"></app-page-header>
 
 <div class="control-fluid">
-            <form role="form">
+            <form role="form" (ngSubmit)="updateReview()" #f="ngForm">
                 <fieldset class="form-group">
                  <div class="form-group">
                                                     <label>Selects a Semester</label>
                                                     <select class="form-control"
+                                                    (change)="setSemester($event.target.value)"
                                                     >
+<option></option>
+                                                        <option *ngFor="let semester of Semesters">
 
-                                                        <option *ngFor="let semester of Semesters" (click)="setSemester(semester)">
                                                         {{semester.name}}</option>
 
                                                     </select>
@@ -17,9 +19,12 @@
                  <div class="form-group">
                                     <label>Selects a Course</label>
                                     <select class="form-control"
+                                    (change)="setCourse($event.target.value)"
                                     >
+<option></option>
+                                        <option *ngFor="let course of Courses"
+                                        >{{course.name}}</option>
 
-                                        <option *ngFor="let course of Courses">{{course.name}}</option>
 
                                     </select>
                                 </div>
@@ -30,39 +35,53 @@
                                       <input class="form-control"
                                       type="text"
                                       name="title"
+                                      ngModel
+                                      required
+                                      #title="ngModel"
                                       [(ngModel)]="Title">
+                                      <span class="help-block" *ngIf="!title.valid && title.touched">
+                                                       Please enter title! </span>
                                     <label>Description</label>
                                     <textarea class="form-control"
                                     type="text"
                                     name="description"
+                                    ngModel
+                                                                          required
+                                                                           #descp="ngModel"
                                      [(ngModel)]="Description"
                                     rows="3"></textarea>
+                                     <span class="help-block" *ngIf="!descp.valid && descp.touched">
+                                                                                           Please enter description! </span>
                                 </fieldset>
 
 
                 <div class="form-group">
                     <label>Rate the Course</label>
                      <label class="radio-inline">
-                                            <input type="radio" name="rating">0
+                                            <input type="radio" name="rating" (click)="setRate(0)">0
                                         </label>
                         <label class="radio-inline">
-                                                               <input type="radio" name="rating">1
+                                                               <input type="radio" name="rating"
+                                                               (click)="setRate(1)">1
                                                            </label>
                         <label class="radio-inline">
-                                                               <input type="radio" name="rating">2
+                                                               <input type="radio" name="rating"
+                                                               (click)="setRate(2)">2
                                                            </label>
                       <label class="radio-inline">
-                                                             <input type="radio" name="rating">3
+                                                             <input type="radio" (click)="setRate(3)" name="rating">3
                                                          </label>
                         <label class="radio-inline">
-                                                               <input type="radio" name="rating">4
+                                                               <input type="radio" (click)="setRate(4)" name="rating">4
                                                            </label>
                                           <label class="radio-inline">
-                                                                                 <input type="radio" name="rating">5
+                                                                                 <input type="radio"
+                                                                                 (click)="setRate(5)"name="rating">5
                                                                              </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary form-control">Submit</button>
+                <button type="submit" class="btn btn-primary form-control"
+                [disabled]="!f.valid">Submit</button>
 
             </form>
 
